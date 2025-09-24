@@ -4,7 +4,5 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-zephyr_library()
-
-zephyr_library_sources(iis3dwb_reg.c)
-zephyr_library_sources_ifdef(CONFIG_IIS3DWB_TRIGGER    iis3dwb_trigger.c)
+#zephyr_library()
+zephyr_library_sources_ifdef(CONFIG_IIS3DWB iis3dwb_trigger.cpp) 

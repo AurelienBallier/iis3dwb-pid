@@ -4,7 +4,7 @@
 # Copyright (c) 2020 STMicroelectronics
 # SPDX-License-Identifier: Apache-2.0
 
-config IIS3DWB
+menuconfig IIS3DWB
 	bool "IIS3DWB SPI accelerometer sensor driver"
 	depends on SPI
 	select HAS_STMEMSC
@@ -13,6 +13,11 @@ config IIS3DWB
 	  Enable driver for IIS3DWB accelerometer sensor driver
 
 if IIS3DWB
+
+module = IIS3DWB
+module-dep = LOG
+module-str = IIS3DWB library
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
 
 choice IIS3DWB_TRIGGER_MODE
 	prompt "Trigger mode"
